@@ -14,7 +14,7 @@ Make sure to also add your Mongo Atlas Admin Username to a nodemon.json file (wh
 }
 ```
 #### Build images
-*docker build -t serdar/node-web-app .
+docker build -t serdar/node-web-app .
 *docker run -p 3000:3000 serdar/node-web-app
 
 #### Start With Docker

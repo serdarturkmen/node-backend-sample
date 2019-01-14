@@ -9,8 +9,8 @@ const orderRoutes = require("./api/routes/orders");
 const userRoutes = require('./api/routes/user');
 
 mongoose.connect(
-  //  "mongodb://mongo:27017",
-  "mongodb://localhost:27017",
+   "mongodb://mongo-db:27017",
+  //"mongodb://localhost:27017",
   {
     useMongoClient: true
   }
