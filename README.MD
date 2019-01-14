@@ -18,12 +18,17 @@ Make sure to also add your Mongo Atlas Admin Username to a nodemon.json file (wh
 *docker run -p 3000:3000 serdar/node-web-app
 
 #### Start With Docker
-*first change >
+first change >
+
 mongoose.connect(
+
   "mongodb://mongo:27017",
+  
   {
+
     useMongoClient: true
+  
   }
 );
 
-* then > docker-compose up
+then > docker-compose up
