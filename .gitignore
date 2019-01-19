@@ -5,5 +5,4 @@ dist/nxdeps.json
 /dist/
 /uploads/
 package-lock.json
-nodemon.json
 /data
