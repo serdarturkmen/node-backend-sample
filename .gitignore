@@ -1,3 +1,9 @@
-node_modules
+/node_modules/
+/.idea/
+.vscode/launch.json
+dist/nxdeps.json
+/dist/
+/uploads/
+package-lock.json
 nodemon.json
-uploads
+/data
