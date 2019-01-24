@@ -13,22 +13,9 @@ Make sure to also add your Mongo Atlas Admin Username to a nodemon.json file (wh
     }
 }
 ```
-#### Build images
-docker build -t serdar/node-web-app .
-*docker run -p 3000:3000 serdar/node-web-app
+# Build images
+docker-compose build
+docker-compose up
 
-#### Start With Docker
-first change >
-
-mongoose.connect(
-
-  "mongodb://mongo:27017",
-  
-  {
-
-    useMongoClient: true
-  
-  }
-);
-
-then > docker-compose up
+# Start Mongo For Local
+docker-compose -f mongodb.yml up

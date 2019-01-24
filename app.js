@@ -8,13 +8,17 @@ const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require('./api/routes/user');
 
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017';
+
 mongoose.connect(
-   "mongodb://mongo-db:27017",
-  //"mongodb://localhost:27017",
+    mongoUrl,
   {
     useMongoClient: true
   }
 );
+
+console.log(mongoUrl);
+
 mongoose.Promise = global.Promise;
 
 app.use(morgan("dev"));

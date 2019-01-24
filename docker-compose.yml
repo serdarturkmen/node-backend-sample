@@ -1,15 +1,15 @@
 version: "3"
 services:
   app:
-    container_name: sample-app
+    container_name: sample-backend
     restart: always
     build: .
     ports:
       - "3000:3000"
     links:
-      - mongo-db
-  mongo-db:
-    container_name: mongo-db
+      - mongo-local
+  mongo-local:
+    container_name: mongo-local
     image: mongo
     ports:
       - "27017:27017"
