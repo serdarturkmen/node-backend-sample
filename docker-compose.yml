@@ -8,6 +8,8 @@ services:
       - "3000:3000"
     links:
       - mongo-local
+    volumes:
+      - ~/volumes/dating/uploads/:/uploads/
   mongo-local:
     container_name: mongo-local
     image: mongo

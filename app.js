@@ -10,6 +10,7 @@ const userRoutes = require('./api/routes/user');
 const sendEmailRoutes = require('./api/routes/sendemail');
 
 const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017';
+const imagePath = process.env.IMAGE_PATH || 'uploads/';
 
 mongoose.connect(
     mongoUrl,
@@ -23,7 +24,7 @@ console.log(mongoUrl);
 mongoose.Promise = global.Promise;
 
 app.use(morgan("dev"));
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(imagePath));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
