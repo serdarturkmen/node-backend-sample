@@ -3,10 +3,11 @@ const router = express.Router();
 const multer = require('multer');
 const checkAuth = require('../middleware/check-auth');
 const ProductsController = require('../controllers/products');
+const imagePath = process.env.IMAGE_PATH || './uploads/';
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, './uploads/');
+    cb(null, imagePath);
   },
   filename: function(req, file, cb) {
     cb(null, new Date().toISOString() + file.originalname);
