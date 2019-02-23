@@ -18,6 +18,7 @@
   "dependencies": {
     "bcrypt": "3.0.3",
     "body-parser": "^1.18.2",
+    "csv-parser": "^2.1.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
