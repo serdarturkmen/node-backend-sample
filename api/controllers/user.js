@@ -3,7 +3,23 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
-const EyeColor = require("../models/eye-color");
+
+exports.get_all = (req, res, next) => {
+    User
+        .find({})
+        .populate('chats.receiverId')
+        .populate('chats.msgId')
+        .sort({
+            createdAt: -1
+        })
+        .exec((err, users) => {
+            if (err) {
+                return res.status(422).json(err)
+            }
+
+            return res.status(200).json(users)
+        })
+};
 
 exports.user_signup = (req, res, next) => {
     User.find({email: req.body.email})
@@ -69,7 +85,7 @@ exports.user_login = (req, res, next) => {
                         },
                         process.env.JWT_KEY,
                         {
-                            expiresIn: "1h"
+                            expiresIn: "72h"
                         }
                     );
                     return res.status(200).json({
@@ -124,5 +140,21 @@ exports.getUserByEmail = (req, res, next) => {
         });
 };
 
+exports.getUserByUsername = (req, res, err) => {
+    User
+        .findOne({
+            email: req.params.email
+        })
+        .populate('chats.receiverId')
+        .populate('chats.msgId')
+        .sort({
+            createdAt: -1
+        })
+        .exec((err, user) => {
+            if (err) {
+                return res.status(422).json(err)
+            }
 
-
+            return res.status(200).json(user)
+        })
+}

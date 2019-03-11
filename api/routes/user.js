@@ -12,4 +12,9 @@ router.delete("/:userId", checkAuth, UserController.user_delete);
 
 router.get("/findByEmail", UserController.getUserByEmail);
 
+router.get("/", UserController.get_all);
+
+router.get('/email/:email', UserController.getUserByUsername)
+
+
 module.exports = router;
